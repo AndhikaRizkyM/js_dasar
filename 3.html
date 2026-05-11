@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="post" onsubmit="return false;">
+      <label for="">Nilai 1</label>
+      <input type="number" id="nilai1" /><br />
+      <select name="" id="operator">
+        <option value="">Pilih Operator</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option></select
+      ><br />
+      <label for="">Nilai 2</label>
+      <input type="number" id="nilai2" /><br />
+      <button onclick="perhitungan()">Hitung</button>
+    </form>
+    <input type="text" id="hasil" readonly />
+    <script>
+      function perhitungan() {
+        let nilai1 = parseFloat(document.getElementById("nilai1").value);
+        let nilai2 = parseFloat(document.getElementById("nilai2").value);
+
+        let operator = document.getElementById("operator").value;
+        switch (operator) {
+          case "*":
+            hasil = nilai1 * nilai2;
+            break;
+          case "/":
+            hasil = nilai2 == 0 ? `tidak boleh 0` : nilai1 / nilai2;
+            break;
+          case "+":
+            hasil = nilai1 + nilai2;
+            break;
+          case "-":
+            hasil = nilai1 - nilai2;
+            break;
+
+          default:
+            hasil = "Tidak Ada";
+
+            break;
+        }
+        document.getElementById("hasil").value = hasil;
+      }
+
+      
+
+      //   function penjumlahan() {
+      //     let nilai1 = parseInt(document.getElementById("nilai1").value);
+      //     let nilai2 = parseInt(document.getElementById("nilai2").value);
+
+      //     let hasil = nilai1 + nilai2;
+      //     alert(`hasilnya adalah ${hasil}`);
+      //   }
+      //   function pengurangan() {
+      //     let nilai1 = parseInt(document.getElementById("nilai1").value);
+      //     let nilai2 = parseInt(document.getElementById("nilai2").value);
+
+      //     let hasil = nilai1 - nilai2;
+      //     alert(`hasilnya adalah ${hasil}`);
+      //   }
+      //   function perkalian() {
+      //     let nilai1 = parseInt(document.getElementById("nilai1").value);
+      //     let nilai2 = parseInt(document.getElementById("nilai2").value);
+
+      //     let hasil = nilai1 * nilai2;
+      //     alert(`hasilnya adalah ${hasil}`);
+      //   }
+      //   function pembagian() {
+      //     let nilai1 = parseInt(document.getElementById("nilai1").value);
+      //     let nilai2 = parseInt(document.getElementById("nilai2").value);
+
+      //     let hasil = nilai1 / nilai2;
+      //     alert(`hasilnya adalah ${hasil}`);
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="POST" onsubmit="return false;">
+      <label for="">Masukkan nama Kota</label>
+      <input type="text" id="kota" />
+      <button onclick="jasaPengiriman()">Tes</button>
+    </form>
+
+    <!-- memanggil hasil total tarif -->
+    <p id="hasil"></p>
+
+    <script>
+      function jasaPengiriman() {
+        let kota = document.getElementById("kota").value;
+        let berat = 10;
+        let tarif = 0;
+
+        if (kota === "Bogor") {
+          //Jika if kota didalamnya tidak sesuai, maka yang kepanggil tetap tarif yang sudah ditentukan di awal
+          tarif = 5000;
+        } else if (kota === "Depok") {
+          tarif = 5000;
+        } else {
+          tarif = 7500;
+        }
+        // membuat hasil perhitungan tarif, dengan menjumlahkan berat dan tarif
+        const total = `Total Tarif = ` + berat * tarif;
+        document.querySelector("#hasil").innerHTML = total;
+        // document.getElementById("hasil").value = total;
+      }
+
+      //   let kota = "Jakarta";
+      //   let berat = "10";
+      //   let tarif = "0";
+
+      //   console.log(5 == 5);
+      //   console.log(5 === "5"); //kalo = nya 3 dia nyamain tipe datanya juga (5 = integer, "5" = string)
+      //   if (kota === "Bogor") {
+      //     //Jika if kota didalamnya tidak sesuai, maka yang kepanggil tetap tarif yang sudah ditentukan di awal
+      //     tarif = 5000;
+      //   } else if (kota === "Depok") {
+      //     tarif = 5000;
+      //   } else {
+      //     tarif = 7500;
+      //   }
+      //   console.log(tarif);
+    </script>
+  </body>
+</html>

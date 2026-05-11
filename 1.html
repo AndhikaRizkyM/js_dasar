@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="pesan"></p>
+
+    <script>
+      // variable = Sebuah penampung nilai
+      // const = nilainya tetap
+      // var = nilainya bisa diubah
+      // let = nilainya bisa diubah
+
+      const nama_depan = "Andhika";
+      const nama_belakang = "Rizky";
+      //   console.log("Nama saya adalah " + nama_depan + " " + nama_belakang);
+      console.log(`Nama saya adalah ${nama_depan} ${nama_belakang}`);
+
+      let nama = "Susi";
+      let alamat = "Tangerang";
+      let pesan = `Halo ${nama}, tinggal di ${alamat}`;
+      let angka1 = 1;
+      let angka2 = 2;
+
+      console.log(`Hasil ${angka1} + ${angka2} adalah = `, angka1 + angka2);
+      console.log(`Hasil ${angka1} - ${angka2} adalah = `, angka1 - angka2);
+      console.log(`Hasil ${angka1} * ${angka2} adalah = `, angka1 * angka2);
+      console.log(`Hasil ${angka1} : ${angka2} adalah = `, angka1 / angka2);
+      console.log(`Hasil ${angka1} % ${angka2} adalah = `, angka1 % angka2);
+      document.getElementById("pesan").innerHTML = pesan;
+    </script>
+  </body>
+</html>

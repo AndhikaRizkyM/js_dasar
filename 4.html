@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <h2>Form Kelulusan Mahasiswa</h2>
+
+    <form action="" method="post" onsubmit="return false;">
+      <label for="">Nama Mahasiswa</label><br />
+      <input type="text" id="nama" required /> <br />
+      <label for="">Nilai Teori</label><br />
+      <input type="number" id="teori" required /> <br />
+      <label for="">Nilai Praktek</label><br />
+      <input type="number" id="praktek" required /> <br />
+      <label for="">Kehadiran</label><br />
+      <input type="number" id="kehadiran" required /><br />
+      <label for="">Pelanggaran</label><br />
+      <select name="" id="pelanggaran">
+        <option value=""></option>
+        <option value="ada">Melakukan Pelanggaran Berat</option>
+        <option value="tidak">Tidak Melakukan Pelanggaran Berat</option>
+      </select>
+      <br />
+      <br />
+      <button id="submit" onclick="check()">Check Passing Grade</button>
+    </form>
+
+    <p id="hasil"></p>
+    <script>
+      function check() {
+        event.preventDefault;
+
+        let nama = document.getElementById("nama").value;
+        let teori = Number(document.getElementById("teori").value);
+        let praktek = Number(document.getElementById("praktek").value);
+        let hadir = Number(document.getElementById("kehadiran").value);
+        let pelanggaran = document.getElementById("pelanggaran").value;
+
+        let rataRata = (teori + praktek) / 2;
+
+        let status = "";
+
+        if (kehadiran < 90) {
+          status = "Tidak Lulus (Kehadiran Kurang!)";
+        } else if (teori < 75) {
+          status = "Tidak Lulus (Teori Kurang!)";
+        } else if (praktek < 80) {
+          status = "Tidak Lulus (Praktek Kurang!)";
+        } else if (pelanggaran === "ada") {
+          status = "Tidak Lulus (Pelanggaran Berat)";
+        } else {
+          if (rataRata > 90) {
+            status = "Lulus dengan Sangat Baik";
+          } else if (rataRata > 85) {
+            status = "Lulus dengan Baik";
+          } else {
+            status = "Lulus";
+          }
+        }
+        document.getElementById("hasil").innerHTML =
+          "Nama " +
+          name +
+          "<br>" +
+          "Rata-Rata " +
+          rataRata +
+          "<br>" +
+          "Status " +
+          status;
+      }
+    </script>
+  </body>
+</html>
