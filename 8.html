@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Function Remove Javascript -->
+    <div
+      class="card"
+      style="background-color: green; color: white; padding: 10px"
+    >
+      <p>Promo Special 50%</p>
+      <button id="tutup-notifikasi">Tutup (x)</button>
+    </div>
+
+    <Input type="text" id="input-keranjang" style="padding: 8px;"></Input>
+    <button type="submit" id="btn-tambah" style="padding: 8px;">Tambah</button>
+
+    <ul id="daftarBelanja">
+      <li>Apel <button class="btn-hapus">Hapus</button></li>
+      <li>Jeruk <button class="btn-hapus">Hapus</button></li>
+      <li>Nanas <button class="btn-hapus">Hapus</button></li>
+    </ul>
+
+    <script>
+      // Script untuk menutup card dengan klik button id tutup-notifikasi
+      const card = document.querySelector(".card");
+      const tutupCard = document.getElementById("tutup-notifikasi");
+      tutupCard.addEventListener("click", function () {
+        card.remove();
+      });
+      
+      const btnHapus = document.querySelectorAll(".btn-hapus");
+      for (let i = 0; i < btnHapus.length; i++) {
+        console.log(i);
+        btnHapus[i].addEventListener("click", function () {
+          // parentElement : <li></li>
+          // btnHapus[1]: this
+          
+          this.parentElement.remove();
+        });
+      } // nilai i default adalah 0
+      
+      // Event Delegation = mengontrol event / menangani event pada parent untuk mengontrol child yang ada di dalam parent
+      const btnTambah = document.getElementById('btn-tambah');
+      const daftarBelanja = document.getElementById('daftar-belanja');
+      const inputKeranjang = document.getElementById('input-keranjang');
+      
+      btnTambah.addEventListener('click', function() {
+        const li = document.createElement('li');
+        li.innerHTML = `${inputKeranjang.value} <button class="btn-hapus"> </button>`;
+
+        daftarBelanja.appendChild(li);
+        inputKeranjang.value = " ";
+      })
+
+      daftarBelanja.addEventListener('click', function(event) {
+        if(event.target.classList.contains('btn-hapus')) {
+          event.target.parentElement.remove();
+        }
+
+      })
+
+      console.log("btnHapus");
+    </script>
+  </body>
+</html>

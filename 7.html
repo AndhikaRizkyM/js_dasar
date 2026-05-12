@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .fontSukses {
+        color: green;
+        font-weight: 500;
+        font-size: 64px;
+      }
+    </style>
+  </head>
+  <body>
+    <Input type="text" id="inputNama" placeholder="Masukkan nama Anda" style="padding: 8px;"></Input>
+    <button type="submit" id="btnSapa" style="padding: 8px;">Sapa Saya!</button>
+
+    <p id="teksSapaan" class="fontSukses"></p>
+
+    <br />
+    <br />
+
+    <ul id="daftarBelanja">
+      <li>Apel</li>
+      <li>Jeruk</li>
+      <li>nanas</li>
+      <li>Mangga</li>
+    </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    <button id="tambahBuah">Tambah Belanja</button>
+
+    <script>
+      // Event Handling dan DOM
+      // # = Id, . = class, element/tag = tag itu sendiri
+
+      // membuat fungsi menampilkan inputan nama
+      const btnSapa = document.getElementById("btnSapa"); // ini adalah function biasa
+
+      btnSapa.addEventListener('click', function(){
+        // mau melakukan apa
+        const inputNama = document.getElementById('inputNama').value; // memanggil inputan dari html
+        console.log(inputNama);
+        const teksSapaan = document.getElementById('teksSapaan'); // memanggil output yang keluar setelah submit nanti
+        console.dir(teksSapaan); // untuk melihat ada apa aja sih yang digunakan di dalam teks sapaan ini
+        teksSapaan.innerText = `Halo, selamat datang, ${inputNama}`; // hasil output yang dikeluarkan dari kita input nama
+        teksSapaan.classList.add('teksSukses');
+        // mengatur style menggunakan javascript
+        // teksSapaan.style.color = 'red';
+        // teksSapaan.style.fontWeight = 'bold';
+        // teksSapaan.style.fontSize = '24px';
+
+      })
+
+      const daftarBelanja = document.getElementById("daftarBelanja");
+
+      const tambahBuah = document.getElementById("tambahBuah");
+
+      tambahBuah.addEventListener("click", function () {
+        // appendChild = bisa update tanpa merombak isi data
+        // innerHTML   = update mengharuskan merombak isi data
+        let listBaru = document.createElement("li");
+        listBaru.innerText = "Semangka";
+        daftarBelanja.appendChild(listBaru);
+        // daftarBelanja.innerHTML += '<li> Pisang </li>';
+      });
+      // btnSapa.addEventListener('click' () => {}) // ini adalah arrow function
+    </script>
+  </body>
+</html>

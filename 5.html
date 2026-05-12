@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Tipe Data, Variable Javascript</title>
+  </head>
+  <body>
+    <script>
+      // Belajar Variable
+
+      // Let berfungsi block scope = variabel bisa dipanggil jika masuk dalam block, contoh di dalam {}. Redeklarasi/Update: Tidak bisa di-redeclare dalam scope yang sama, tapi bisa diupdate.
+      // Var berfungsi Function Scope atau Global. Redeklarasi/Update: bisa di-redeclare dan diupdate
+      // Const berfungsi Block Scope. Redeklarasi/Update: Tidak bisa di-redeclare maupun diupdate datanya (konstan).
+
+      let nama = "";
+      var name;
+
+      // const a = 10;
+      // console.log(a); // outputnya 10
+      // a = 12;
+      // console.log(a); // outputnya error
+
+      // parse itu mengconvert tipe data, contoh string ke integer
+
+      let angka1 = "10";
+      let angka2 = "15";
+      let total = angka1 + angka2; // ini adalah concat (penggabungan string)
+
+      let depan = "Bambang";
+      let belakang = "Pamungkas";
+      let depan_belakang = depan + belakang;
+
+      let teks_umur = "25";
+      let angka_umur = parseInt(teks_umur); // Mengubah string ke integer
+
+      console.log(teks_umur + 5); // output 255
+      console.log(angka_umur + 5); // output 30
+
+      // JSON.parse
+      // JSON = Javascript Object Notation
+      // Server akan mengirim data bertipe string lalu js client/fe bakal nangkep dengan output object
+      // Object JSON/JS/FE : (.) dataServerTeks.nama
+      // Setiap object json yang isinya banyak data menggunakan kurung kurawal {}, berbeda dengan array menggunakan kurung siku []
+
+      //   let dataServerTeks = { Nama: "Budi", umur: 25, Kota: "jakarta" };
+      //   console.log(dataServerTeks.nama);
+
+      //   let dataUser = JSON.parse(dataServerTeks);
+      //   console.log(dataUSer.nama);
+
+      //   ES (Ecma Script) =
+      let first = "Budi";
+      let last = "Sudarsono";
+
+      // String Interpolation
+      console.log("Selamat Datang, " + first + " " + last); //Versi lama
+      console.log(`Selamat Datang, ${first} ${last}`); //Versi baru, jika di dalamnya terdapat spasi/strip/atau apapun itu akan tetap terbaca
+    </script>
+  </body>
+</html>
