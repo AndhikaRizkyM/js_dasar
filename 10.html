@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Array Javascript</title>
+  </head>
+  <body>
+    <div class="mb-3">
+      <label for="">Nama</label>
+      <input type="text" id="input-nama" placeholder="Masukan Nama..." />
+    </div>
+    <button id="btn-tambah">Tambah Data</button>
+
+    <table border="1" width="100%">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Jenis Kelamin</th>
+          <th>Umur</th>
+          <th>Alamat</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="table-siswa"></tbody>
+    </table>
+
+    <script>
+      // berisi kumpulan string
+      let daftarBuah = ["Apel", "Nanas", "Jeruk", "Semangka"];
+      let daftarHarga = [10000, 20000, 30000];
+      let mixHargaBuah = ["Nanas", 1000, "Semangka", 20000];
+
+      // 0, 1, 2
+      console.log(daftarBuah[1]); // nanas
+      console.log(daftarHarga[1]);
+
+      // array multi dimensi
+      let peserta = [
+        ["Reza", "10", "Bekasi", "Pria"],
+        ["Akbar", "11", "Matraman", "Pria"],
+      ];
+
+      console.log(peserta);
+      console.log(peserta[0][3]);
+      console.log(peserta[1][2]);
+
+      let daftarSiswa = [
+        {
+          nama: "Budi Sudarsono",
+          umur: "30",
+          alamat: "Bekasi",
+          jenisKelamin: "Pria",
+        },
+        {
+          nama: "Bambang",
+          umur: "35",
+          alamat: "Depok",
+          jenisKelamin: "Pria",
+        },
+        {
+          nama: "Benjamin",
+          umur: "37",
+          alamat: "Bekasi",
+          jenisKelamin: "Pria",
+        },
+      ];
+
+      console.log(daftarSiswa);
+      console.log(daftarSiswa[0].nama); // jika ingin mengambil objek nama saja. Memanggil object menggunakan .
+      console.log(daftarSiswa[1].alamat);
+
+      //   function callName() {
+      //     return "Budi";
+      //   }
+
+      const tbodySiswa = document.getElementById("table-siswa");
+      function getDatasiswa() {
+        tbodySiswa.innerHTML = "";
+        for (let i = 0; i < daftarSiswa.length; i++) {
+          let barisBaru = document.createElement("tr");
+          barisBaru.innerHTML = `<td>${daftarSiswa[i].nama}</td>
+          <td>${daftarSiswa[i].jenisKelamin}</td>
+          <td>${daftarSiswa[i].umur}</td>
+          <td>${daftarSiswa[i].alamat}</td>
+          <td><button class ='btn-hapus' data-index='${i}'>Hapus</button></td>`;
+
+          tbodySiswa.appendChild(barisBaru);
+        }
+      }
+
+      getDatasiswa();
+
+      const btnTambah = document.getElementById("btn-tambah");
+      const inputNama = document.getElementById("input-nama");
+      btnTambah.addEventListener("click", function () {
+        // push(): memasukan data ke dalam array
+        daftarSiswa.push({
+          nama: inputNama.value,
+          jenisKelamin: "",
+          umur: "",
+          alamat: "",
+        });
+
+        getDatasiswa();
+
+        inputNama.value = "";
+      });
+
+      tbodySiswa.addEventListener("click", function (event) {
+        if (event.target.classList.contains("btn-hapus")) {
+          let indexData = event.target.getAttribute("data-index");
+          daftarSiswa.splice(indexData, 1);
+          getDatasiswa();
+        }
+      });
+    </script>
+  </body>
+</html>

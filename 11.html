@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Event Change</title>
+  </head>
+  <body>
+    <label for="">Pilih Tema Layar</label>
+    <select name="" id="pilih-tema">
+      <option value="">Pilih salah satu</option>
+      <option value="terang">Terang</option>
+      <option value="gelap">Gelap</option>
+      <option value="biru">Biru</option>
+    </select>
+
+    <h2 id="teks-status">Anda belum memilih tema</h2>
+
+    <script>
+      // chage: ketika pengguna benar benar milih option
+      const pilihTema = document.getElementById("pilih-tema");
+      const teksStatus = document.getElementById("teks-status");
+
+      const body = document.querySelector("body");
+
+      pilihTema.addEventListener("change", function (event) {
+        console.log(event);
+        let temaValue = event.target.value;
+        if (temaValue === "") {
+          teksStatus.innerText = "Anda belum memilih tema";
+          body.style.backgroundColor = "white";
+          body.style.color = "black";
+          return; // stope proess
+        }
+
+        if (temaValue === "terang") {
+          teksStatus.innerText = "Matahari Bersinar! Anda di Tema Terang!";
+          body.style.backgroundColor = "yellow";
+          body.style.color = "black";
+        } else if (temaValue === "gelap") {
+          teksStatus.innerText = "Waktunya tidur! Anda di tempat gelap";
+          body.style.backgroundColor = "black";
+          body.style.color = "white";
+        } else if (temaValue === "biru") {
+          teksStatus.innerText = "menyelam! Hati-hati tenggelam";
+          body.style.backgroundColor = "blue";
+          body.style.color = "white";
+        }
+      });
+    </script>
+  </body>
+</html>
